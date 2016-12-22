@@ -1,0 +1,33 @@
+---
+# URL of the webhooks to send POST events to
+webhooks:
+  - 127.0.0.1
+
+# Polling interval. Max is 0.3s.
+# Events flushed within this interval will be sent as well
+# in batches.
+interval: '0.3s'
+
+# This is the name of the user folder on your PC
+# I.e., C:\Users\lune
+# Must be set to locate the journal files.
+user: 'lune'
+
+# The list of events you want broadcasted.
+# See the latest manual here for a list of possible events:
+# https://forums.frontier.co.uk/showthread.php/275151-Commanders-log-manual-and-data-sample
+# They are case-sensitive.
+events:
+  - Rank
+  - Progress
+  - ApproachSettlement
+  - Location
+  - Docked
+  - ReceiveText
+  - Undocked
+  - SupercruiseEntry
+  - LaunchFighter
+  - Bounty
+  - FactionKillBond
+  - SendText
+  - DockingRequest
