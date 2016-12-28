@@ -29,6 +29,7 @@ def latest_event(file)
       events << JSON.parse(l)
     rescue JSON::ParserError
       LOGGER.warn 'Caught a JSON object mid-flush somehow.. skipping!'
+      next
     end
   end
 
