@@ -53,7 +53,10 @@ def handle(event)
   embed = handler.handle event
 
   WEBHOOKS.each do |w|
-    w.execute { |builder| builder.embeds << embed }
+    w.execute do |builder|
+      builder.username = "CMDR #{event['Commander']}"
+      builder.embeds << embed
+    end
   end
 
   LOGGER.info "Handled event #{event['event']} => #{event}"
