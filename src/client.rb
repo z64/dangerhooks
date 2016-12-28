@@ -1,7 +1,7 @@
 # Dependencies
 require 'bundler/setup'
-require 'rufus-scheduler'
 require 'rest-client'
+require 'listen'
 
 # Stdlib
 require 'yaml'
@@ -12,12 +12,6 @@ require 'logger'
 
 # Logger
 LOGGER = Logger.new $stdout
-
-# Timezone for rufus
-ENV['TZ'] = 'UTC'
-
-# Scheduler
-SCHEDULER = Rufus::Scheduler.new
 
 # Configuration
 CONFIG = OpenStruct.new YAML.load_file 'config.yaml'
