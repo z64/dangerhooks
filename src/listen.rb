@@ -19,7 +19,6 @@ WEBHOOKS = CONFIG.webhooks.map { |url| Discordrb::Webhooks::Client.new url: url 
 module Handler ; end
 Dir.glob('src/handlers/*.rb') { |mod| load mod }
 
-
 def latest_event(file)
   # Container for events in this file
   events = []
