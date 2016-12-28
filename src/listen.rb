@@ -70,7 +70,7 @@ end
 listener = Listen.to(GAME_DIR, only: /\.log$/) do |m, a, r|
   m.each do |f|
     builder = handle latest_event(f)
-    syndicate builder
+    syndicate builder if builder
   end
 end
 
