@@ -47,6 +47,8 @@ end
 # Take an event, search for a handler, and return
 # an object we can send off to Discord
 def handle(event)
+  return unless CONFIG.events.include? event['event']
+
   handler = Handler.const_get event['event'].to_sym
 
   embed = handler.handle event
