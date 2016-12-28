@@ -53,6 +53,8 @@ def handle(event)
 
   LOGGER.info "Handled event #{event['event']} => #{event}"
 
+  return unless embed
+
   Discordrb::Webhooks::Builder.new(
     username: "CMDR #{event['Commander']}",
     embeds: [embed]
