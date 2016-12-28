@@ -100,9 +100,8 @@ class Journal
     end
 
     # handle unread events
-    @events[@last_read..-1].each_with_index do |e, i|
+    @events[@last_read..-1].each do |e|
       next unless CONFIG.events.include? e['event']
-      puts i
       builder = handle e
       syndicate builder
     end
