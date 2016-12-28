@@ -17,3 +17,4 @@ events:
   - Undocked
   - WingJoin
   - FSDJump
+  - SendText
