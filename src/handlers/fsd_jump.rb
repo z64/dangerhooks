@@ -53,6 +53,11 @@ module Handler::FSDJump
       info
     )
 
+    e.add_field(
+      name: 'Powerplay',
+      value: "#{event['Powers'].join(', ')} (#{event['PowerplayState']})"
+    )
+
     e
   end
 end
