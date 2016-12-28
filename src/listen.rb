@@ -102,8 +102,14 @@ class Journal
     # handle unread events
     @events[@last_read..-1].each do |e|
       next unless CONFIG.events.include? e['event']
+
       builder = handle e
-      syndicate builder
+
+      if builder
+        syndicate builder
+      else
+        LOGGER.warn "Requested unsupported event: #{e['event']}"
+      end
     end
 
     @last_read = @events.count
