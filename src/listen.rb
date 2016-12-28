@@ -1,5 +1,4 @@
 # Stdlib
-require 'json'
 require 'yaml'
 require 'logger'
 
