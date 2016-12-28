@@ -3,11 +3,6 @@
 webhooks:
   - 127.0.0.1
 
-# Polling interval. Max is 0.3s.
-# Events flushed within this interval will be sent as well
-# in batches.
-interval: '0.3s'
-
 # This is the name of the user folder on your PC
 # I.e., C:\Users\lune
 # Must be set to locate the journal files.
