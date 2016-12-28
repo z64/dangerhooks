@@ -48,7 +48,13 @@ end
 # an object we can send off to Discord
 def handle(event)
   handler = Handler.const_get event['event'].to_sym
-  handler.handle event
+
+  embed = handler.handle event
+
+  WEBHOOKS.each do |w|
+    w.execute { |builder| builder.embeds << embed }
+  end
+
   LOGGER.info "Handled event #{event['event']} => #{event}"
 rescue
   LOGGER.info "Unsupported event #{event['event']} => #{event}"
