@@ -5,8 +5,8 @@ require 'logger'
 
 # Gems
 require 'bundler/setup'
-require 'rest-client'
 require 'listen'
+require 'discordrb/webhooks'
 
 # Configuration
 CONFIG = OpenStruct.new YAML.load_file 'config.yaml'
@@ -46,7 +46,7 @@ def handle(event)
   handler = Handlers.const_get event['event'].to_sym
   handler.handle event
 rescue
-  LOGGER.info "Unsupported event #{event['event']}"
+  LOGGER.info "Unsupported event #{event['event']} => #{event}"
 end
 
 # Listen to the log directory, and handle events
