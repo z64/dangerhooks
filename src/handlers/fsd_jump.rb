@@ -1,28 +1,28 @@
 # Triggered when a player jumps to another system
 # {
-#   "timestamp": "2016-10-12T02:34:59Z",
+#   "timestamp": "2016-12-28T20:28:59Z",
 #   "event": "FSDJump",
-#   "StarSystem": "Ross 199",
+#   "StarSystem": "Sentec",
 #   "StarPos": [
-#     -101.969,
-#     0.969,
-#     -11.781
+#     -34.406,
+#     -120.781,
+#     57.375
 #   ],
-#   "Allegiance": "Federation",
-#   "Economy": "$economy_Industrial;",
-#   "Economy_Localised": "Industrial",
-#   "Government": "$government_Corporate;",
-#   "Government_Localised": "Corporate",
-#   "Security": "$SYSTEM_SECURITY_medium;",
-#   "Security_Localised": "Medium Security",
+#   "SystemAllegiance": "Independent",
+#   "SystemEconomy": "$economy_Agri;",
+#   "SystemEconomy_Localised": "Agriculture",
+#   "SystemGovernment": "$government_Democracy;",
+#   "SystemGovernment_Localised": "Democracy",
+#   "SystemSecurity": "$SYSTEM_SECURITY_low;",
+#   "SystemSecurity_Localised": "Low Security",
 #   "Powers": [
-#     "Pranav Antal"
+#     "Archon Delaine"
 #   ],
 #   "PowerplayState": "Exploited",
-#   "JumpDist": 9.833,
-#   "FuelUsed": 5.124792,
-#   "FuelLevel": 26.875208,
-#   "Faction": "Njikan Jet Dynamic Industry"
+#   "JumpDist": 17.107,
+#   "FuelUsed": 0.729802,
+#   "FuelLevel": 30.251379,
+#   "SystemFaction": "Democrats of Sentec"
 # }
 module Handler::FSDJump
   def self.handle(event)
@@ -36,11 +36,11 @@ module Handler::FSDJump
       name: 'System Info',
       inline: true,
       value: <<~info
-        Controlling Faction: `#{event['Faction']}`
-        Government: `#{event['Government_Localised']}`
-        Allegiance: `#{event['Allegiance']}`
-        Economy: `#{event['Economy_Localised']}`
-        Security: `#{event['Security_Localised']}`
+        Controlling Faction: `#{event['SystemFaction']}`
+        Government: `#{event['SystemGovernment_Localised']}`
+        Allegiance: `#{event['SystemAllegiance']}`
+        Economy: `#{event['SystemEconomy_Localised']}`
+        Security: `#{event['SystemSecurity_Localised']}`
       info
     )
 
