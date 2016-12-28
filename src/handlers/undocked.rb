@@ -7,7 +7,7 @@
 module Handler::Undocked
   def self.handle(event)
     Discordrb::Webhooks::Embed.new(
-      description: "Undocked from #{event['StationName']}",
+      description: "Undocked from **#{event['StationName']}**",
       timestamp: Time.parse(event['timestamp'])
     )
   end
