@@ -9,7 +9,7 @@ require 'discordrb/webhooks'
 # Configuration
 CONFIG = OpenStruct.new YAML.load_file 'config.yaml'
 LOGGER = Logger.new $stdout
-GAME_DIR = "C:/Users/#{CONFIG.user}/Saved Games/Frontier Developments/Elite Dangerous"
+GAME_DIR = "C:/Users/#{ENV['USERNAME']}/Saved Games/Frontier Developments/Elite Dangerous"
 
 # Load webhooks
 WEBHOOKS = CONFIG.webhooks.map { |url| Discordrb::Webhooks::Client.new url: url }

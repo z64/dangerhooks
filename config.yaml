@@ -1,12 +1,7 @@
 ---
 # URL of the webhooks to send POST events to
 webhooks:
-  - https://canary.discordapp.com/api/webhooks/263596159346540544/k1f1EJhti44BbKT1LKqq4AwNV05X0rv900aGiLI7iqmK96MrG2fGadIm0Kc0Tc54P_gJ
-
-# This is the name of the user folder on your PC
-# I.e., C:\Users\lune
-# Must be set to locate the journal files.
-user: 'lune'
+  - webhook url here
 
 # The list of events you want broadcasted.
 # See the latest manual here for a list of possible events:
