@@ -59,6 +59,7 @@ def handle(event)
   )
 rescue
   LOGGER.info "Unsupported event #{event['event']} => #{event}"
+  nil
 end
 
 # Take an embed and broadcast it to all of our webhooks
@@ -69,7 +70,8 @@ end
 # Listen to the log directory, and handle events
 listener = Listen.to(GAME_DIR, only: /\.log$/) do |m, a, r|
   m.each do |f|
-    builder = handle latest_event(f)
+    event = latest_event f
+    builder = handle event
     syndicate builder if builder
   end
 end
