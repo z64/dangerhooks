@@ -13,6 +13,7 @@ module Handler::WingJoin
 
     Discordrb::Webhooks::Embed.new(
       description: "Winged up with #{others}!",
+      color: 0x00ff00,
       timestamp: Time.parse(event['timestamp'])
     )
   end

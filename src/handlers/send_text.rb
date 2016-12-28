@@ -15,6 +15,7 @@ module Handler::SendText
 
     Discordrb::Webhooks::Embed.new(
       description: event['Message'][2..-1],
+      color: 0xffff00,
       timestamp: Time.parse(event['timestamp'])
     )
   end

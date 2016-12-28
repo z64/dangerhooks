@@ -16,6 +16,7 @@ module Handler::Docked
   def self.handle(event)
     e = Discordrb::Webhooks::Embed.new(
       description: "Docked at **#{event['StationName']}** in **#{event['StarSystem']}**",
+      color: 0x0000ff,
       timestamp: Time.parse(event['timestamp'])
     )
 

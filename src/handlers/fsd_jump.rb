@@ -28,6 +28,7 @@ module Handler::FSDJump
   def self.handle(event)
     e = Discordrb::Webhooks::Embed.new(
       description: "Jumped to **#{event['StarSystem']}**",
+      color: 0x0000ff,
       timestamp: Time.parse(event['timestamp'])
     )
 
