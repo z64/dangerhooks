@@ -14,7 +14,8 @@ LOGGER = Logger.new $stdout
 GAME_DIR = "C:/Users/#{CONFIG.user}/Saved Games/Frontier Developments/Elite Dangerous"
 
 # Load handlers
-Dir.glob('handlers/*.rb') { |mod| load mod }
+module Handler ; end
+Dir.glob('src/handlers/*.rb') { |mod| load mod }
 
 
 def latest_event(file)
@@ -43,8 +44,9 @@ end
 # Take an event, search for a handler, and return
 # an object we can send off to Discord
 def handle(event)
-  handler = Handlers.const_get event['event'].to_sym
+  handler = Handler.const_get event['event'].to_sym
   handler.handle event
+  LOGGER.info "Handled event #{event['event']} => #{event}"
 rescue
   LOGGER.info "Unsupported event #{event['event']} => #{event}"
 end
