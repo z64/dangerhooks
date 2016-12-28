@@ -15,7 +15,7 @@
 module Handler::Docked
   def self.handle(event)
     e = Discordrb::Webhooks::Embed.new(
-      description: "Docked at #{event['StationName']} in #{event['StarSystem']}",
+      description: "Docked at **#{event['StationName']}** in **#{event['StarSystem']}**",
       timestamp: Time.parse(event['timestamp'])
     )
 
