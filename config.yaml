@@ -13,16 +13,4 @@ user: 'lune'
 # https://forums.frontier.co.uk/showthread.php/275151-Commanders-log-manual-and-data-sample
 # They are case-sensitive.
 events:
-  - Rank
-  - Progress
-  - ApproachSettlement
-  - Location
-  - Docked
-  - ReceiveText
   - Undocked
-  - SupercruiseEntry
-  - LaunchFighter
-  - Bounty
-  - FactionKillBond
-  - SendText
-  - DockingRequest
