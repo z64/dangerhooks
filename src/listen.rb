@@ -4,7 +4,8 @@ require 'logger'
 
 # Gems
 require 'bundler/setup'
-require 'listen'
+# require 'listen'
+require 'wdm'
 require 'discordrb/webhooks'
 
 # Configuration
@@ -48,12 +49,14 @@ end
 def handle(event)
   return unless CONFIG.events.include? event['event']
 
+  LOGGER.info "Received event #{event['event']} => #{event}"
+
   handler = Handler.const_get event['event'].to_sym
   embed = handler.handle event
 
-  LOGGER.info "Handled event #{event['event']} => #{event}"
-
   return unless embed
+
+  LOGGER.info "Handled event #{event['event']}"
 
   Discordrb::Webhooks::Builder.new(
     username: "CMDR #{event['Commander']}",
