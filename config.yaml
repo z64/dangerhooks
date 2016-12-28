@@ -13,4 +13,7 @@ user: 'lune'
 # https://forums.frontier.co.uk/showthread.php/275151-Commanders-log-manual-and-data-sample
 # They are case-sensitive.
 events:
+  - Docked
   - Undocked
+  - WingJoin
+  - FSDJump
