@@ -49,25 +49,28 @@ def handle(event)
   return unless CONFIG.events.include? event['event']
 
   handler = Handler.const_get event['event'].to_sym
-
   embed = handler.handle event
 
-  WEBHOOKS.each do |w|
-    w.execute do |builder|
-      builder.username = "CMDR #{event['Commander']}"
-      builder.embeds << embed
-    end
-  end
-
   LOGGER.info "Handled event #{event['event']} => #{event}"
+
+  Discordrb::Webhooks::Builder.new(
+    username: "CMDR #{event['Commander']}",
+    embeds: [embed]
+  )
 rescue
   LOGGER.info "Unsupported event #{event['event']} => #{event}"
+end
+
+# Take an embed and broadcast it to all of our webhooks
+def syndicate(builder)
+  WEBHOOKS.each { |w| w.execute(builder) {} }
 end
 
 # Listen to the log directory, and handle events
 listener = Listen.to(GAME_DIR, only: /\.log$/) do |m, a, r|
   m.each do |f|
-    handle latest_event f
+    builder = handle latest_event(f)
+    syndicate builder
   end
 end
 
