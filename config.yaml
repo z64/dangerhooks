@@ -14,3 +14,6 @@ events:
   - FSDJump
   - SendText
   - RedeemVoucher
+  - Died
+  - USSDrop
+  - SelfDestruct
