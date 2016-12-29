@@ -105,11 +105,7 @@ class Journal
 
       builder = handle e
 
-      if builder
-        syndicate builder
-      else
-        LOGGER.warn "Requested unsupported event: #{e['event']}"
-      end
+      syndicate builder if builder
     end
 
     @last_read = @events.count
