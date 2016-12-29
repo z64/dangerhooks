@@ -3,7 +3,6 @@ require 'yaml'
 require 'logger'
 
 # Gems
-require 'bundler/setup'
 require 'discordrb/webhooks'
 
 # Configuration

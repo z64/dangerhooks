@@ -1,3 +1,4 @@
+require 'bundler/setup'
 require_relative 'src/journal'
 
 # Create a new journal
