@@ -42,5 +42,5 @@ end
 
 # Take an embed and broadcast it to all of our webhooks
 def syndicate(builder)
-  WEBHOOKS.each { |w| w.execute(builder) {} }
+  WEBHOOKS.each { |w| w.execute(builder) }
 end
