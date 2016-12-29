@@ -2,6 +2,8 @@
 
 A client for sending in-game events from Elite: Dangerous to a Discord channel, or another source that can otherwise accept JSON payloads.
 
+![preview](http://imgur.com/inntEpN.jpg)
+
 ## How to use
 
 ### Installation
