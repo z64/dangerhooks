@@ -61,7 +61,7 @@ def handle(event)
     embeds: [embed]
   )
 rescue
-  LOGGER.info "Unsupported event #{event['event']} => #{event}"
+  LOGGER.warn "Unsupported event #{event['event']} => #{event}"
   nil
 end
 
