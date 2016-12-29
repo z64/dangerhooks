@@ -18,30 +18,6 @@ WEBHOOKS = CONFIG.webhooks.map { |url| Discordrb::Webhooks::Client.new url: url 
 module Handler ; end
 Dir.glob('src/handlers/*.rb') { |mod| load mod }
 
-def latest_event(file)
-  # Container for events in this file
-  events = []
-
-  # Parse each event
-  File.new(file).each_line do |l|
-    begin
-      events << JSON.parse(l)
-    rescue JSON::ParserError
-      LOGGER.warn 'Caught a JSON object mid-flush (or otherwise corrupt) somehow.. skipping!'
-      next
-    end
-  end
-
-  # Handle the most recent event
-  event = events.last
-
-  # Keep commander name with all events
-  commander_event = events.find { |e| e.has_key? 'Commander' }
-  event['Commander'] ||= commander_event['Commander']
-
-  event
-end
-
 # Take an event, search for a handler, and return
 # an object we can send off to Discord
 def handle(event)
